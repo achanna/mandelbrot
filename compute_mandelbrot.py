@@ -6,6 +6,11 @@ def initialize_complex_zeroes(resolution):
 
 # return matrix of x and y coordinates in a complex plane, ie x+yi
 def initialize_complex_coords(xmin,xmax,ymin,ymax,resolution):
+    resolution = 1    #define resolution of matrix
+    x = numpy.linspace(xmin, xmax, resolution) #establishes x array
+    y = numpy.linspace(ymin, ymax, resolution) #establishes y array
+    xv, yv = meshgrid(x, y) #creates meshgrid of x and y arrays
+    complex_coords = xv+yx*i #define the function to plot from meshgrid
   return complex_coords
 
 # initialize starting mandelbrot matrix, with each entry equal to max_iterations
