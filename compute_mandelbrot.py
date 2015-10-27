@@ -15,6 +15,7 @@ def initialize_complex_coords(xmin,xmax,ymin,ymax,resolution):
 
 # initialize starting mandelbrot matrix, with each entry equal to max_iterations
 def initialize_mandelbrot(resolution,max_iterations):
+  mandelbrot = max_iterations.*numpy.ones(resolution);
   return mandelbrot
 
 # return matrix of true/false values, indicating where mandelbrot entries are equal to max_iterations
