@@ -2,6 +2,7 @@ import numpy
 
 # return matrix of complex zeros, ie 0+0i
 def initialize_complex_zeroes(resolution):
+  complex_zeroes = numpy.zeros( (resolution,resolution), dtype='complex' )
   return complex_zeroes
 
 # return matrix of x and y coordinates in a complex plane, ie x+yi
@@ -20,11 +21,13 @@ def initialize_mandelbrot(resolution,max_iterations):
 
 # return matrix of true/false values, indicating where mandelbrot entries are equal to max_iterations
 def compute_mask(mandelbrot,max_iterations):
+  mask = mandelbrot==max_iterations
   return mask
 
 # evaluate fractal equation for each entry in mask, z = z^2+c
 # using mask can dramatically speed up process
 def evaluate_eqn(complex_zeroes,complex_coords,mask):
+  complex_zeroes[mask] = complex_zeroes[mask]**2 + complex_coords[mask]
   return complex_zeroes
 
 def compute_mandelbrot(xmin,xmax,ymin,ymax,resolution,max_iterations):
